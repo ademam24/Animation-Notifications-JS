@@ -1,0 +1,168 @@
+/*import google font poppins*/
+@import url("https://fonts.googleapis.com/css2?family=Play&family=Poppins:wght@100&display=swap");
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --dark-color:#34495e;
+  --light-color:#fff;
+  --success:#0abf30;
+  --error:#e24d4c;
+  --warning:#e9bd0c;
+  --info:#3498db;
+  --xmark:#aeb0d7;
+}
+
+@-webkit-keyframes show_toast {
+  0% {
+    transform: translateX(100%);
+  }
+  40% {
+    transform: translateX(-5%);
+  }
+  80% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-10px);
+  }
+}
+
+@keyframes show_toast {
+  0% {
+    transform: translateX(100%);
+  }
+  40% {
+    transform: translateX(-5%);
+  }
+  80% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-10px);
+  }
+}
+@-webkit-keyframes hide_toast {
+  0% {
+    transform: translateX(-10px);
+  }
+  40% {
+    transform: translateX(0%);
+  }
+  80% {
+    transform: translateX(-5%);
+  }
+  100% {
+    transform: translateX(calc(100% + 20px));
+  }
+}
+@keyframes hide_toast {
+  0% {
+    transform: translateX(-10px);
+  }
+  40% {
+    transform: translateX(0%);
+  }
+  80% {
+    transform: translateX(-5%);
+  }
+  100% {
+    transform: translateX(calc(100% + 20px));
+  }
+}
+@-webkit-keyframes progress {
+  100% {
+    width: 0%;
+  }
+}
+@keyframes progress {
+  100% {
+    width: 0%;
+  }
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--dark-color);
+}
+body .notifications {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+body .notifications .toast {
+  background-color: var(--light-color);
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  -webkit-animation: show_toast 0.3s ease forwards;
+          animation: show_toast 0.3s ease forwards;
+}
+body .notifications .toast :where(.column) {
+  display: flex;
+  align-items: center;
+}
+body .notifications .toast :where(.column) i {
+  font-size: 1.75rem;
+}
+body .notifications .toast :where(.column) span {
+  font-size: 1.02rem;
+  margin-left: 1rem;
+  color: rgb(19, 18, 18);
+}
+body .notifications .toast i:last-child {
+  color: var(--xmark);
+  cursor: pointer;
+}
+body .notifications .toast i:last-child:hover {
+  color: var(--dark-color);
+}
+body .notifications .toast::after {
+  position: absolute;
+  content: "";
+  height: 3px;
+  width: 350px;
+  background-color: red;
+  bottom: 0px;
+  left: 0px;
+  -webkit-animation: progress 5s linear forwards;
+          animation: progress 5s linear forwards;
+}
+body .notifications .hide {
+  -webkit-animation: hide_toast 0.5s ease forwards;
+          animation: hide_toast 0.5s ease forwards;
+}
+body .notifications .success::after {
+  background-color: var(--success);
+}
+body .notifications .success i {
+  color: var(--success);
+}
+body .notifications .error::after {
+  background-color: var(--error);
+}
+body .notifications .error i {
+  color: var(--error);
+}
+body .notifications .warning::after {
+  background-color: var(--warning);
+}
+body .notifications .warning i {
+  color: var(--warning);
+}
+body .notifications .info::after {
+  background-color: var(--info);
+}
+body .notifications .info i {
+  color: var(--info);
+}/*# sourceMappingURL=style.css.map */

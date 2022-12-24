@@ -1,0 +1,119 @@
+/*import google font poppins*/
+@import url('https://fonts.googleapis.com/css2?family=Play&family=Poppins:wght@100&display=swap');
+
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+    font-family: 'Poppins' , sans-serif;
+}
+:root{
+    --dark-color:#34495e;
+    --light-color:#fff;
+    --success:#0abf30;
+    --error:#e24d4c;
+    --warning:#e9bd0c;
+    --info:#3498db;
+    --xmark:#aeb0d7;
+
+}
+@import 'keyframe.scss';
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--dark-color);
+    .notifications{
+        
+        position: fixed;
+        top:20px;
+        right: 20px;
+       .toast{
+        background-color: var(--light-color);
+        display:flex;
+        align-items: center;
+        padding:8px 10px;
+        margin-bottom: 10px;
+        justify-content: space-between;
+        :where(.column){
+            display: flex;
+            align-items: center;
+            i{
+                font-size: 1.75rem;
+            }
+            span{
+                font-size: 1.02rem;
+                margin-left:1rem;
+                color:rgb(19, 18, 18);
+                
+            }
+        }
+        & i:last-child{
+
+            color:var(--xmark);
+            cursor:pointer;
+        }
+        & i:last-child:hover{
+            color: var(--dark-color);
+        }
+
+        position: relative;
+        overflow: hidden;
+
+        &::after{
+            position: absolute;
+            content:"";
+            height:3px;
+            width:350px;
+            background-color: red;
+            bottom:0px;
+            left:0px;
+            animation: progress 5s linear forwards;
+           
+        }
+       
+        animation: show_toast 0.3s ease forwards;
+
+        
+       }
+       & .hide{
+        animation: hide_toast 0.5s ease forwards;
+    }
+      
+     & .success{
+        &::after{
+            background-color: var(--success);
+        }
+        i{
+            color: var(--success);
+        }
+    }
+   
+    & .error{
+        &::after{
+        background-color: var(--error);
+      }
+      i{
+        color: var(--error);
+      }
+   }
+    & .warning{
+        &::after{
+            background-color: var(--warning);
+        }
+        i{
+            color:var(--warning);
+        }
+    }
+    & .info{
+        &::after{
+            background-color: var(--info);
+        }
+        i{
+            color:var(--info);
+        }
+    }
+       
+}
+}
